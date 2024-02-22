@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: Unibody;
+  src: url('/fonts/Unibody.otf') format('opentype');
+}
+
+* {
+  font-family: Unibody;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  outline: none;
+  text-shadow: var(--glow);
+}
+
+/* Fixes whitespace overflow on mobile */
+body,
+html {
+  height: 100%;
+  width: 100%;
+  overscroll-behavior: none;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+/* Themes */
+:root {
+  --glow: 0px 0px 2px hsl(120, 100%, 80%), 0px 0px 15px green,
+    0px 0px 60px green;
+  --drop-shadow-one: 0px 0px 2px hsl(120, 100%, 80%);
+  --drop-shadow-two: 0px 0px 8px green;
+}
+
+.theme-green {
+  --glow: 0px 0px 2px hsl(120, 100%, 80%), 0px 0px 15px green,
+    0px 0px 60px green;
+  --drop-shadow-one: 0px 0px 2px hsl(120, 100%, 80%);
+  --drop-shadow-two: 0px 0px 8px green;
+}
+
+.theme-purple {
+  --glow: 0px 0px 2px hsl(280, 100%, 80%), 0px 0px 15px purple,
+    0px 0px 60px purple;
+  --drop-shadow-one: 0px 0px 2px hsl(280, 100%, 80%);
+  --drop-shadow-two: 0px 0px 8px purple;
+}
+
+.theme-blue {
+  --glow: 0px 0px 2px hsl(240, 100%, 80%), 0px 0px 15px blue, 0px 0px 60px blue;
+  --drop-shadow-one: 0px 0px 2px hsl(240, 100%, 80%);
+  --drop-shadow-two: 0px 0px 8px blue;
+}
+
+.theme-yellow {
+  --glow: 0px 0px 2px hsl(60, 100%, 80%), 0px 0px 15px yellow,
+    0px 0px 60px yellow;
+  --drop-shadow-one: 0px 0px 2px hsl(60, 100%, 80%);
+  --drop-shadow-two: 0px 0px 8px yellow;
+}
+
+.theme-pink {
+  --glow: 0px 0px 2px hsl(320, 100%, 80%), 0px 0px 15px pink, 0px 0px 60px pink;
+  --drop-shadow-one: 0px 0px 2px hsl(320, 100%, 80%);
+  --drop-shadow-two: 0px 0px 8px pink;
+}
+
+.theme-gray {
+  --glow: 0px 0px 2px hsl(0, 0%, 80%), 0px 0px 15px grey, 0px 0px 60px grey;
+  --drop-shadow-one: 0px 0px 2px hsl(0, 0%, 80%);
+  --drop-shadow-two: 0px 0px 8px grey;
+}
+
+.red-drop-shadow {
+  filter: drop-shadow(0px 0px 2px hsl(0, 100%, 80%))
+    drop-shadow(0px 0px 8px red);
+}
+
+.red-text-glow {
+  text-shadow: 0px 0px 2px hsl(0, 100%, 80%), 0px 0px 15px red, 0px 0px 60px red;
+}
+
+.opaque {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Animations */
+@keyframes flicker {
+  0% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0.8;
+  }
+}
+
+.animate-flicker {
+  animation: flicker 0.5s alternate-reverse steps(3) infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-rotate {
+  animation: rotate 2s linear infinite;
+}
+
+/* Scroll bars */
+/* For webkit-based browsers (e.g., Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* For Firefox */
+/* Please note that Firefox only supports scrollbar color customization starting from Firefox 64+ */
+* {
+  scrollbar-color: rgba(0, 0, 0, 0.5);
+  scrollbar-width: thin;
+}
